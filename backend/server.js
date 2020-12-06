@@ -2,6 +2,7 @@ require('./models/db');
 const express = require('express');
 const cors = require('cors');
 const employeeController = require('./controllers/employeeController');
+const Employee = require('./models/Employee');
 
 const app = express();
 
@@ -14,8 +15,17 @@ app.get('/', (req, res) => {
 
 app.post('/posts', (req, res) => {
     // do a db call
+
     const data = req.body;
+
+
+    // if (data.length !== 10)
+    //         return res.status(400).send('invalid length')
+
     console.log(data)
+
+    // const newEmployee=new Employee(data)
+
     const arr = [
         {
             name: 'first doc',
