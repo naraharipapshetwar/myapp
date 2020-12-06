@@ -1,15 +1,19 @@
 require('./models/db');
 const express = require('express');
-
 const employeeController = require('./controllers/employeeController');
+
 const app = express();
+
 app.use(express.json());
+
 app.get('/', (req, res) => {
     res.status(200).send('Welcome')
 })
 
 app.post('/posts', (req, res) => {
     // do a db call
+    const data = req.body;
+    console.log(data)
     const arr = [
         {
             name: 'first doc',
